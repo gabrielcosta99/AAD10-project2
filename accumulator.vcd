@@ -1,0 +1,650 @@
+$date
+  Mon Dec  9 14:40:23 2024
+$end
+$version
+  GHDL v0
+$end
+$timescale
+  1 fs
+$end
+$scope module standard $end
+$upscope $end
+$scope module textio $end
+$upscope $end
+$scope module std_logic_1164 $end
+$upscope $end
+$scope module numeric_std $end
+$upscope $end
+$scope module accumulator_tb $end
+$var reg 1 ! s_clock $end
+$var reg 4 " s_w_addr[3:0] $end
+$var reg 4 # s_w_inc[3:0] $end
+$var reg 4 $ s_r_addr[3:0] $end
+$var reg 4 % s_r_data[3:0] $end
+$scope module uut $end
+$var reg 1 & clock $end
+$var reg 4 ' write_addr[3:0] $end
+$var reg 4 ( write_inc[3:0] $end
+$var reg 4 ) read_addr[3:0] $end
+$var reg 4 * read_data[3:0] $end
+$var reg 4 + delayed_write_addr[3:0] $end
+$var reg 4 , delayed_write_addr2[3:0] $end
+$var reg 4 - delayed_write_inc[3:0] $end
+$var reg 4 . value_to_write[3:0] $end
+$var reg 4 / s_aux_r_d[3:0] $end
+$scope module my_register_addr $end
+$var reg 1 0 clock $end
+$var reg 4 1 d[3:0] $end
+$var reg 4 2 q[3:0] $end
+$upscope $end
+$scope module my_register_addr2 $end
+$var reg 1 3 clock $end
+$var reg 4 4 d[3:0] $end
+$var reg 4 5 q[3:0] $end
+$upscope $end
+$scope module my_register_inc $end
+$var reg 1 6 clock $end
+$var reg 4 7 d[3:0] $end
+$var reg 4 8 q[3:0] $end
+$upscope $end
+$scope module adder_n $end
+$var reg 4 9 a[3:0] $end
+$var reg 4 : b[3:0] $end
+$var reg 1 ; c_in $end
+$var reg 4 < s[3:0] $end
+$var reg 4 = s_carry_in[3:0] $end
+$var reg 4 > s_carry_out[3:0] $end
+$scope module gen_adder(0) $end
+$scope module adder $end
+$var reg 1 ? a $end
+$var reg 1 @ b $end
+$var reg 1 A c_in $end
+$var reg 1 B s $end
+$var reg 1 C c_out $end
+$upscope $end
+$upscope $end
+$scope module gen_adder(1) $end
+$scope module adder $end
+$var reg 1 D a $end
+$var reg 1 E b $end
+$var reg 1 F c_in $end
+$var reg 1 G s $end
+$var reg 1 H c_out $end
+$upscope $end
+$upscope $end
+$scope module gen_adder(2) $end
+$scope module adder $end
+$var reg 1 I a $end
+$var reg 1 J b $end
+$var reg 1 K c_in $end
+$var reg 1 L s $end
+$var reg 1 M c_out $end
+$upscope $end
+$upscope $end
+$scope module gen_adder(3) $end
+$scope module adder $end
+$var reg 1 N a $end
+$var reg 1 O b $end
+$var reg 1 P c_in $end
+$var reg 1 Q s $end
+$var reg 1 R c_out $end
+$upscope $end
+$upscope $end
+$scope module gen_carry(1) $end
+$upscope $end
+$scope module gen_carry(2) $end
+$upscope $end
+$scope module gen_carry(3) $end
+$upscope $end
+$upscope $end
+$scope module triple_port_ram $end
+$var reg 1 S clock $end
+$var reg 4 T write_addr[3:0] $end
+$var reg 4 U write_data[3:0] $end
+$var reg 1 V write_en $end
+$var reg 4 W read_addr[3:0] $end
+$var reg 4 X read_data[3:0] $end
+$var reg 4 Y aux_read_addr[3:0] $end
+$var reg 4 Z aux_read_data[3:0] $end
+$comment ram is not handled $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+0!
+bUUUU "
+bUUUU #
+b0000 $
+bUUUU %
+0&
+bUUUU '
+bUUUU (
+b0000 )
+bUUUU *
+bUUUU +
+bUUUU ,
+bUUUU -
+bUUUU .
+bUUUU /
+00
+bUUUU 1
+bUUUU 2
+03
+bUUUU 4
+bUUUU 5
+06
+bUUUU 7
+bUUUU 8
+bUUUU 9
+bUUUU :
+0;
+bUUUU <
+bUUU0 =
+bUUUU >
+U?
+U@
+0A
+UB
+UC
+UD
+UE
+UF
+UG
+UH
+UI
+UJ
+UK
+UL
+UM
+UN
+UO
+UP
+UQ
+UR
+0S
+bUUUU T
+bUUUU U
+1V
+b0000 W
+bUUUU X
+bUUUU Y
+bUUUU Z
+#50000
+bUUUU Z
+#500000
+#1000000
+1!
+1&
+10
+13
+16
+1S
+#1010000
+bUUUU 2
+bUUUU 5
+bUUUU 8
+#1400000
+b0000 %
+b0000 *
+b0000 X
+#1500000
+0!
+b0011 "
+b0010 #
+b0011 $
+0&
+b0011 '
+b0010 (
+b0011 )
+00
+b0011 1
+03
+06
+b0010 7
+0S
+b0011 W
+#2000000
+1!
+1&
+10
+13
+16
+1S
+#2010000
+b0011 +
+b00X0 -
+b0011 2
+b0011 4
+bUUUU 5
+b00X0 8
+b00X0 :
+bUU00 =
+bUUU0 >
+0@
+0C
+XE
+0F
+0J
+0O
+b0011 Y
+#2400000
+b0000 *
+b0000 X
+#2410000
+b00X0 .
+b0000 /
+b0000 9
+b00X0 <
+b0000 =
+b0000 >
+0?
+0B
+0D
+XG
+0H
+0I
+0K
+0L
+0M
+0N
+0P
+0Q
+0R
+b00X0 U
+b0000 Z
+#2500000
+0!
+b0111 #
+0&
+b0111 (
+00
+03
+06
+b0111 7
+0S
+#2810000
+b0000 Z
+#3000000
+1!
+1&
+10
+13
+16
+1S
+#3010000
+b0011 ,
+b0XXX -
+b0XXX .
+b0011 2
+b0011 5
+b0XXX 8
+b0XXX :
+b0XXX <
+X@
+XB
+XJ
+XL
+b0011 T
+b0XXX U
+#3060000
+bXXXX .
+b0XXX /
+b0XXX 9
+bXXXX <
+bXXX0 =
+b0XXX >
+X?
+XC
+XD
+XF
+XH
+XI
+XK
+XM
+XP
+XQ
+bXXXX U
+b0XXX Z
+#3110000
+bXXXX /
+bXXXX 9
+bXXXX >
+XN
+XR
+bXXXX Z
+#3400000
+b0000 *
+b0000 X
+#3500000
+0!
+b0100 #
+0&
+b0100 (
+00
+03
+06
+b0100 7
+0S
+#4000000
+1!
+1&
+10
+13
+16
+1S
+#4010000
+b0X00 -
+b0011 2
+b0011 5
+b0X00 8
+b0X00 :
+bX000 =
+bXX00 >
+0@
+0C
+0E
+0F
+0H
+0K
+#4050000
+bXXXX %
+bXXXX *
+bXXXX X
+#4500000
+0!
+b0101 "
+b1111 #
+0&
+b0101 '
+b1111 (
+00
+b0101 1
+03
+06
+b1111 7
+0S
+#5000000
+1!
+1&
+10
+13
+16
+1S
+#5010000
+b0101 +
+bXXXX -
+b0101 2
+b0101 4
+b0011 5
+bXXXX 8
+bXXXX :
+bXXX0 =
+bXXXX >
+X@
+XC
+XE
+XF
+XH
+XK
+XO
+b0101 Y
+#5050000
+bXXXX *
+bXXXX X
+#5410000
+b0000 /
+b0000 9
+b0000 =
+b0000 >
+0?
+0C
+0D
+0F
+0H
+0I
+0K
+0M
+0N
+0P
+0R
+b0000 Z
+#5500000
+0!
+b1011 "
+b0010 #
+b1011 $
+0&
+b1011 '
+b0010 (
+b1011 )
+00
+b1011 1
+03
+06
+b0010 7
+0S
+b1011 W
+#6000000
+1!
+1&
+10
+13
+16
+1S
+#6010000
+b1011 +
+b0101 ,
+b00X0 -
+b00X0 .
+b1011 2
+b1011 4
+b0101 5
+b00X0 8
+b00X0 :
+b00X0 <
+0@
+0B
+0J
+0L
+0O
+0Q
+b0101 T
+b00X0 U
+b1011 Y
+#6400000
+b0000 %
+b0000 *
+b0000 X
+#6410000
+b0000 Z
+#6500000
+0!
+b0011 "
+b1010 #
+b0101 $
+0&
+b0011 '
+b1010 (
+b0101 )
+00
+b0011 1
+03
+06
+b1010 7
+0S
+b0101 W
+#7000000
+1!
+1&
+10
+13
+16
+1S
+#7010000
+b0011 +
+b1011 ,
+bX0X0 -
+bX0X0 .
+b0011 2
+b0011 4
+b1011 5
+bX0X0 8
+bX0X0 :
+bX0X0 <
+XO
+XQ
+b1011 T
+bX0X0 U
+b0011 Y
+#7050000
+b00X0 %
+b00X0 *
+b00X0 X
+#7410000
+bXXXX .
+bXXXX /
+bXXXX 9
+bXXXX <
+bXX00 =
+bXXX0 >
+X?
+XB
+XD
+XH
+XI
+XK
+XL
+XM
+XN
+XP
+XR
+bXXXX U
+bXXXX Z
+#7500000
+0!
+b0000 #
+b0011 $
+0&
+b0000 (
+b0011 )
+00
+03
+06
+b0000 7
+0S
+b0011 W
+#7810000
+bXXXX Z
+#8000000
+1!
+1&
+10
+13
+16
+1S
+#8010000
+b0011 ,
+b0000 -
+b0011 2
+b0011 5
+b0000 8
+b0000 :
+b0000 =
+b0000 >
+0E
+0H
+0K
+0M
+0O
+0P
+0R
+b0011 T
+#8060000
+bXXXX Z
+#8200000
+b1011 $
+b1011 )
+b1011 W
+#8400000
+bXXXX %
+bXXXX *
+bXXXX X
+#8500000
+0!
+b0101 "
+b0100 #
+0&
+b0101 '
+b0100 (
+00
+b0101 1
+03
+06
+b0100 7
+0S
+#8800000
+b0011 $
+b0011 )
+b0011 W
+#9000000
+1!
+1&
+10
+13
+16
+1S
+#9010000
+b0101 +
+b0X00 -
+b0101 2
+b0101 4
+b0011 5
+b0X00 8
+b0X00 :
+bX000 =
+bXX00 >
+XJ
+XM
+XP
+XR
+b0101 Y
+#9050000
+bXXXX *
+bXXXX X
+#9410000
+b0XX0 .
+b00X0 /
+b00X0 9
+b0XX0 <
+b0000 =
+b0000 >
+0?
+0B
+0I
+0M
+0N
+0P
+0Q
+0R
+b0XX0 U
+b00X0 Z
+#9500000
+0!
+b0011 "
+b0110 #
+b0101 $
+0&
+b0011 '
+b0110 (
+b0101 )
+00
+b0011 1
+03
+06
+b0110 7
+0S
+b0101 W
+#9810000
+b00X0 Z
+#10000000
