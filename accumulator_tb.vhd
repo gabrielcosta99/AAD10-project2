@@ -24,7 +24,7 @@ begin
   begin
     s_clock <= '0';
     wait for 500 ps;
-    for cycle in 0 to 8 loop
+    for cycle in 0 to 10 loop
       wait for 500 ps;
       s_clock <= '1';
       wait for 500 ps;
@@ -53,7 +53,10 @@ begin
     wait for 1000 ps;
     s_w_addr <= X"5"; s_w_inc <= X"4";
     wait for 1000 ps;
-    s_w_addr <= X"3"; s_w_inc <= X"6";
+    s_w_addr <= X"3"; s_w_inc <= X"5";
+    wait for 1000 ps;
+    s_w_addr <= X"B"; s_w_inc <= X"D";
+    wait for 1000 ps;
     wait;
   end process;
   r_addr : process
@@ -79,6 +82,9 @@ begin
     s_r_addr <= X"3";
     wait for 700 ps;
     s_r_addr <= X"5";
+    wait for 1000 ps;
+    s_r_addr <= X"B";
+    wait for 1000 ps;
     wait;
   end process;
 end stimulus;

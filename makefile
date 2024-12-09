@@ -8,5 +8,5 @@ accumulator.vcd:
 	rm -f work-*.cf
 	ghdl -i --std=08 $(AUX_FILES) accumulator.vhd accumulator_tb.vhd
 	ghdl -m --std=08 accumulator_tb
-	ghdl -r --std=08 accumulator_tb --stop-time=20000ps --vcd=accumulator.vcd
+	ghdl -r --std=08 accumulator_tb --stop-time=30000ps --vcd=accumulator.vcd
 
