@@ -13,14 +13,14 @@ entity triple_port_ram is
     clock          : in std_logic;
     -- write port
     write_addr     : in  std_logic_vector(ADDR_BITS-1 downto 0);
-    write_data     : in  std_logic_vector(DATA_BITS-1 downto 0);
+    write_data     : in  std_logic_vector(DATA_BITS-1 downto 0) ;
     write_en       : in  std_logic;
     -- read port
     read_addr      : in  std_logic_vector(ADDR_BITS-1 downto 0);
     read_data      : out std_logic_vector(DATA_BITS-1 downto 0);
     -- auxiliary read port
     aux_read_addr  : in  std_logic_vector(ADDR_BITS-1 downto 0);
-    aux_read_data  : out std_logic_vector(DATA_BITS-1 downto 0)
+    aux_read_data  : out std_logic_vector(DATA_BITS-1 downto 0) 
   );
 end triple_port_ram;
 
@@ -32,28 +32,27 @@ begin
   -- synchronous
   process(clock) is
   begin
-    if rising_edge(clock) then
+    if  (clock) then
       if write_en = '1' then
         ram(to_integer(unsigned(write_addr))) <= write_data;
       end if;
       if read_addr = write_addr and write_en = '1' then
         read_data <= transport write_data after 50 ps;
       else
-        read_data <= transport ram(to_integer(unsigned(read_addr))) after 400 ps;
+        read_data <= transport ram(to_integer(unsigned(read_addr))) after 50 ps;
       end if;
-
-      
-      
-      
     end if;
   end process;
-  process(aux_read_addr,write_addr,write_data) is
+
+  process(aux_read_addr,write_data) is
   begin
-    if aux_read_addr = write_addr and write_en = '1' then
-      aux_read_data <= transport write_data after 50 ps;
-    else
-      aux_read_data <= transport ram(to_integer(unsigned(aux_read_addr))) after 400 ps;
-    end if;
+    -- if aux_read_addr = write_addr and write_en = '1' then
+    --   aux_read_data <= transport write_data after 50 ps;
+    -- else
+    --   aux_read_data <= transport ram(to_integer(unsigned(aux_read_addr))) after 50 ps;
+    -- end if;
+    -- aux_read_data <= transport ram(to_integer(unsigned(aux_read_addr))) after 50 ps;
+    aux_read_data <= ram(to_integer(unsigned(aux_read_addr))) ;
   end process;
 end synchronous_new;
 

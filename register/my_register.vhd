@@ -6,7 +6,7 @@ entity my_register is
   port(
         clock : in  std_logic;
         d     : in  std_logic_vector(N-1 downto 0);
-        q     : out std_logic_vector(N-1 downto 0)
+        q     : out std_logic_vector(N-1 downto 0):=(others => '0')
       );
 end my_register;
 

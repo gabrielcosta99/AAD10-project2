@@ -33,10 +33,10 @@ begin
     wait for 500 ps;
     wait;
   end process;
-  w_addr_and_data : process
+  w_addr_and_inc : process
   begin
-    s_w_addr <= "UUUU"; s_w_inc <= "UUUU";
-    wait for 1500 ps;
+    s_w_addr <= "0000"; s_w_inc <= "0000";
+    wait for 1480 ps;
     s_w_addr <= X"3"; s_w_inc <= X"2";
     wait for 1000 ps;
     s_w_addr <= X"3"; s_w_inc <= X"7";
@@ -59,7 +59,7 @@ begin
   r_addr : process
   begin
     s_r_addr <= X"0";
-    wait for 1500 ps;
+    wait for 1480 ps;
     s_r_addr <= X"3";
     wait for 1000 ps;
     s_r_addr <= X"3";

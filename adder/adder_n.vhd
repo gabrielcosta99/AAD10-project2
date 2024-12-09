@@ -7,7 +7,7 @@ entity adder_n is
      port(a     : in  std_logic_vector(N-1 downto 0);
           b     : in  std_logic_vector(N-1 downto 0);
           c_in  : in  std_logic;
-          -- c_out : out std_logic;
+          c_out : out std_logic;
           s     : out std_logic_vector(N-1 downto 0));
 end adder_n;
 
@@ -16,7 +16,7 @@ architecture structural of adder_n is
   signal s_carry_out : std_logic_vector(N-1 downto 0);
 begin
   s_carry_in(0) <= c_in;
-  -- c_out <= s_carry_out(N-1);
+  c_out <= s_carry_out(N-1);
   gen_adder : for i in 0 to (N-1) generate
        adder:   entity work.full_adder(behavioral)
                        port map(a     => a(i),
