@@ -2,7 +2,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 
 entity my_register is
-  generic(N : integer range 2 to 8 := 4);
+  generic(N : integer range 2 to 32 := 4);
   port(
         clock : in  std_logic;
         d     : in  std_logic_vector(N-1 downto 0);

@@ -16,7 +16,7 @@ architecture stimulus of triple_port_ram_tb is
 begin
   uut : entity work.triple_port_ram(synchronous_new)
                generic map(ADDR_BITS => 4,
-                           DATA_BITS => 4)
+                           DATA_BITS_LOG2 => 4)
                port map(clock      => s_clock,
                         write_addr => s_w_addr,
                         write_data => s_w_data,
