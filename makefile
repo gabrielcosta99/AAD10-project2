@@ -10,3 +10,12 @@ accumulator.vcd:
 	ghdl -m --std=08 accumulator_tb
 	ghdl -r --std=08 accumulator_tb --stop-time=30000ps --vcd=accumulator.vcd
 
+
+.PHONY:	accumulator_pipeline.vcd
+accumulator_pipeline.vcd:
+	rm -f work-*.cf
+	ghdl -i --std=08 $(AUX_FILES) accumulator_pipeline.vhd accumulator_tb.vhd multiplexer.vhd vector_comparator.vhd
+	ghdl -m --std=08 accumulator_tb
+	ghdl -r --std=08 accumulator_tb --stop-time=30000ps --vcd=accumulator.vcd
+
+
