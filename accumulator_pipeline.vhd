@@ -61,30 +61,31 @@ begin
 
     adder_n:  entity work.adder_n(structural)
     generic map(N => 2**DATA_BITS_LOG2)
-        port map(a     => s_data23,
+        port map(a     => s_adder_n_a,
                 b     => double_delayed_write_inc,
                 c_in  => '0',
                 s     => value_to_write,
                 c_out  => open);
 
-    delay_data12: entity work.my_register(behavioral)
-    generic map(N => 2**DATA_BITS_LOG2)
-       port map(clock => clock,
-                 d     => s_data12,
-                 q     => s_data23);
-
-    -- comparator: entity work.vector_comparator(behavioral)
-    -- generic map(N => ADDR_BITS)
-    --   port map(vec1 => s_write_addr,
-    --             vec2     => delayed_write_addr,
-    --             equal    => s_equal);             
-
-    -- multiplex: entity work.multiplexer(behavioral)
+    -- delay_data12: entity work.my_register(behavioral)
     -- generic map(N => 2**DATA_BITS_LOG2)
-    --    port map(sel => s_equal,
-    --              a     => s_data23,
-    --              b    => s_delayed_value_to_write,
-    --              y    => s_adder_n_a); 
+    --    port map(clock => clock,
+    --              d     => s_data12,
+    --              q     => s_data23);
+
+    comparator: entity work.vector_comparator(behavioral)
+    generic map(N => ADDR_BITS)
+      port map(vec1 => s_write_addr,
+                vec2     => delayed_write_addr,
+                equal    => s_equal);             
+
+    multiplex: entity work.multiplexer(behavioral)
+    generic map(N => 2**DATA_BITS_LOG2)
+       port map( clock => clock,
+                 sel => s_equal,
+                 a     => s_data12,
+                 b    => value_to_write,        -- if s_equal = 1, y = value_to_write
+                 y    => s_adder_n_a); 
 
     delay_writeaddr: entity work.my_register(behavioral)
     generic map(N => ADDR_BITS)

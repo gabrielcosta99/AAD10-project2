@@ -9,21 +9,24 @@ entity multiplexer is
         N : integer range 2 to 16
     );
     port (
+        clock : in std_logic;
         a : in std_logic_vector(N-1 downto 0);  -- Input 1
         b : in std_logic_vector(N-1 downto 0);  -- Input 2
         sel : in std_logic;  -- Select line
-        y : out std_logic_vector(N-1 downto 0)  -- Output
+        y : out std_logic_vector(N-1 downto 0) := (others => '0')  -- Output
     );
 end multiplexer;
 
 architecture behavioral of multiplexer is
 begin
-    process(a, b, sel)
+    process(clock)
     begin
-        if sel = '0' then
-            y <= a;  -- Pass input 'a' to output when sel is '0'
-        else
-            y <= b;  -- Pass input 'b' to output when sel is '1'
+        if rising_edge(clock) then
+            if sel = '0' then
+                y <= a;  -- Pass input 'a' to output when sel is '0'
+            else
+                y <= b;  -- Pass input 'b' to output when sel is '1'
+            end if;
         end if;
     end process;
 end behavioral;
