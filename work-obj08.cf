@@ -1,0 +1,19 @@
+v 4
+file . "triple_port_ram/triple_port_ram.vhd" "1dee9eb5791943acda7f1da8c373ac53ca07a513" "20241221211032.813":
+  entity triple_port_ram at 1( 0) + 0 on 13;
+  architecture synchronous_new of triple_port_ram at 28( 791) + 0 on 14;
+file . "register/my_register.vhd" "08ad797962ae9f05dbdbf3085b606d165a02d246" "20241221211032.813":
+  entity my_register at 1( 0) + 0 on 11;
+  architecture behavioral of my_register at 13( 295) + 0 on 12;
+file . "adder/full_adder.vhd" "11003a747f6df0c31641d96ad4e7cf4eba8d97aa" "20241221211032.813":
+  entity full_adder at 1( 0) + 0 on 15;
+  architecture behavioral of full_adder at 12( 238) + 0 on 16;
+file . "adder/adder_n.vhd" "e1e7f592a146959cd38a8f05f6fcc2d8d30b42d7" "20241221211032.813":
+  entity adder_n at 1( 0) + 0 on 17;
+  architecture structural of adder_n at 14( 380) + 0 on 18;
+file . "accumulator_single_cycle.vhd" "423432a6a51f646ee51f648afe0c8841b2f20a10" "20241221211032.813":
+  entity accumulator at 1( 0) + 0 on 19;
+  architecture structural of accumulator at 24( 570) + 0 on 20;
+file . "accumulator_tb.vhd" "e8bbebbc3753f5db6db423eaa86659bec56661d0" "20241221211032.813":
+  entity accumulator_tb at 5( 48) + 0 on 21;
+  architecture stimulus of accumulator_tb at 12( 164) + 0 on 22;
