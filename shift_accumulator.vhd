@@ -29,7 +29,6 @@ architecture structural of accumulator is
     signal s_shifted_inc : std_logic_vector(2**DATA_BITS_LOG2-1 downto 0);
     
 begin
-    s_shifted_inc <= std_logic_vector(shift_left(unsigned(s_write_inc_stable),to_integer(unsigned(s_write_shift_stable))));
     my_register_addr: entity work.my_register(behavioral)
                 generic map(N => ADDR_BITS)
                     port map(clock => clock,
