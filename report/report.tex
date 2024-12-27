@@ -49,6 +49,13 @@ As suggested with provided staring point the basic accumulator was implemented i
     \item Direct accumulation without pipelining
     \item Basic addition functionality
 \end{itemize}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\linewidth]{accumulator_single_sycle.png}
+    \caption{Single-cycle accumulator block diagram}
+    \label{fig:single_cycle}
+\end{figure}
+
 
 \subsection{Pipelined Accumulator}
 The pipelined version \texttt{accumulator\_pipeline.vhd} improves
@@ -59,6 +66,13 @@ The pipelined version \texttt{accumulator\_pipeline.vhd} improves
     \item Implementing hazard detection
 \end{itemize}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\linewidth]{accumulator_pipeline.png}
+    \caption{Pipelined accumulator block diagram}
+    \label{fig:pipeline}
+\end{figure}
+
 \subsection{Shift Accumulator}
 We implemented a version of the accumulator using a barrel Shifter for both the pipelined and single sycle version (\texttt{shift\_accumulator\_pipeline.vhd and shift\_accumulator.vhd}) both of wich improve upon the basic design by:
 \begin{itemize}
@@ -66,6 +80,20 @@ We implemented a version of the accumulator using a barrel Shifter for both the 
     \item Configurable shift amounts
     \item Integration with the accumulation logic
 \end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\linewidth]{accumulator_shift_single_sycle.png}
+    \caption{Shift accumulator sigle sycle block diagram}
+    \label{fig:shift}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\linewidth]{accumulator_shift_pipeline.png}
+    \caption{Shift accumulator pipeline block diagram}
+    \label{fig:shift_pipeline}
+\end{figure}
 
 
 \section{Components}
