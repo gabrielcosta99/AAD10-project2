@@ -52,7 +52,7 @@ As suggested with the provided starting point, the basic accumulator was impleme
     \item Parameterizable data width for flexibility
 \end{itemize}
 
-The accumulator operates by reading an input value, adding it to the current stored value in the ram in the address \textbf{write\_addr}, and then writing the result back to the storage register in a single clock cycle. 
+The accumulator operates by reading an input value, adding it to the current value stored in the ram at the address \textbf{write\_addr}, and writing the resulting sum back to the storage register, all within a single clock cycle.
 %This design ensures minimal latency but does not support high-frequency operations due to the lack of pipelining.
 
 \begin{figure}[H]
@@ -64,7 +64,7 @@ The accumulator operates by reading an input value, adding it to the current sto
 
 
 \subsection{Pipelined Accumulator}
-The pipelined version, \texttt{accumulator\_pipeline.vhd}, requires two clock cycles to complete a single operation.
+The pipelined version, \texttt{accumulator\_pipeline.vhd}, requires two clock cycles to complete the objective.
 \begin{itemize}
     \item \textbf{First clock cycle:} The module reads the value stored in the specified memory location.
     \item \textbf{Second clock cycle:} It computes the sum of the input value and the previously read value, then writes the result back to the memory.
@@ -88,9 +88,14 @@ We implemented a version of the accumulator using a barrel shifter for both the 
     \item Integration with the accumulation logic
 \end{itemize}
 
-The shift accumulator design leverages a barrel shifter to perform dynamic shift operations on the input data. This allows for efficient manipulation of data bits, which is crucial for various digital signal processing tasks. The configurable shift amounts enable the design to be flexible and adaptable to different requirements, making it suitable for a wide range of applications.
+The shift accumulator design leverages a barrel shifter to perform dynamic shift operations on the input data. 
+% This allows for efficient manipulation of data bits, which is crucial for various digital signal processing tasks. The configurable shift amounts enable the design to be flexible and adaptable to different requirements, making it suitable for a wide range of applications.
 
-In the single cycle version, the shift and accumulation operations are performed within a single clock cycle. This design is optimized for scenarios where speed is critical, and the simplicity of the control logic is a priority. The block diagram in Figure \ref{fig:shift} illustrates the architecture of the single cycle shift accumulator.
+The accumulator operates by reading an input value, adding it to the current value stored in the ram at the address \textbf{write\_addr}, and writing the resulting sum back to the storage register, all within a single clock cycle.
+
+In the single cycle version, the shift and accumulation operations are performed within a single clock cycle. The \textbf{write\_inc} is shifted a \textbf{write\_shift} amount and it's value is added to the current value stored in the \textbf{write\_addr} address. The result is then stored back to the same register.
+% This design is optimized for scenarios where speed is critical, and the simplicity of the control logic is a priority. 
+The block diagram in Figure \ref{fig:shift} illustrates the architecture of the single cycle shift accumulator.
 
 \begin{figure}[H]
     \centering
@@ -99,6 +104,7 @@ In the single cycle version, the shift and accumulation operations are performed
     \label{fig:shift}
 \end{figure}
 
+% TALVEZ EXPLICA AQUI O QUE ACONTECE EM CADA CLOCK CYCLE COMO EU FIZ NO PIPELINE NORMAL
 For the pipelined version, the design is divided into multiple stages, allowing for higher clock frequencies and improved throughput. Each stage of the pipeline performs a portion of the shift and accumulation operations, enabling the design to handle higher data rates. This is particularly beneficial in applications where large volumes of data need to be processed efficiently. The block diagram in Figure \ref{fig:shift_pipeline} shows the architecture of the pipelined shift accumulator.
 
 \begin{figure}[H]
@@ -115,11 +121,11 @@ Some of the Components were provided by the professor, and some were
 implemented by us.
 Key components used in the designs include:
 \begin{itemize}
-    \item Triple Port RAM for memory storage
-    \item Registers for signal stabilization
-    \item Adder N for arithmetic operations
-    \item Shifter for shift operations
-    \item Vector Comparator for address comparison
+    \item \textbf{Triple Port RAM} - for memory storage
+    \item \textbf{Registers} - for signal stabilization
+    \item \textbf{Adder N} - for arithmetic operations
+    \item \textbf{Shifter} - for shift operations
+    \item \textbf{Vector Comparator} - for address comparison
 \end{itemize}
 
 \section{Testing}
@@ -127,7 +133,7 @@ Testing was performed using:
 \begin{itemize}
     \item GHDL simulator
     \item VCD waveform generation
-    \item A provisded testbench for the single-cycle accumulator adapted for the pipelined and shift versions
+    \item A provided testbench  % a testbench fornecida ja era para o shift version, eu é que alterei para a versao sem shift
 \end{itemize}
 
 \section{Results and Analysis}
@@ -140,7 +146,7 @@ Testing was performed using:
     \label{fig:waveform}
 \end{figure}
 
-\ref{fig:waveform} shows the waveform generated by the testbench for the single-cycle accumulator. The testbench was adapted for the pipelined and shift versions, and the results were similar. The shift accumulator was tested with different shift amounts, and the results were as expected.
+\ref{fig:waveform} shows the waveform generated by the testbench for the single-cycle accumulator. The testbench was adapted the different versions and the results were similar. The shift accumulator was tested with different shift amounts, and the results were as expected.
 
 \section{Conclusions}
 This project demonstrated the design and analysis of various accumulator architectures in VHDL: single-cycle, pipelined, and shift-based. The single-cycle design offered simplicity and minimal latency but was limited in scalability for high-speed operations. The pipelined accumulator addressed this by improving throughput and enabling higher clock frequencies. The shift accumulator added flexibility with dynamic shift operations, making it suitable for data-intensive applications.
