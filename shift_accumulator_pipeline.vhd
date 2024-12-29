@@ -24,8 +24,7 @@ end accumulator;
 
 architecture structural of accumulator is
   signal s_write_addr_stable,s_delayed_write_addr_stable : std_logic_vector(ADDR_BITS-1 downto 0);
-  signal s_delayed_write_inc_stable,s_write_inc_stable,s_value_to_write, s_aux_r_d,s_delayed_value_to_write:  std_logic_vector(2**DATA_BITS_LOG2-1 downto 0) := (others => '0');
-  signal s_data12, s_data23,s_adder_n_a: std_logic_vector(2**DATA_BITS_LOG2-1 downto 0) := (others => '0');
+  signal s_delayed_write_inc_stable,s_write_inc_stable,s_value_to_write, s_aux_read_data,s_adder_n_a:  std_logic_vector(2**DATA_BITS_LOG2-1 downto 0) := (others => '0');
   signal s_equal: std_logic := '0';
 
   signal s_write_shift_stable : std_logic_vector(DATA_BITS_LOG2-1 downto 0);
@@ -74,7 +73,7 @@ begin
         read_addr     => read_addr,
         read_data     => read_data,
         aux_read_addr => s_write_addr_stable,
-        aux_read_data => s_data12
+        aux_read_data => s_aux_read_data
     );
 
   -- Stabilize "write_inc"
@@ -122,7 +121,7 @@ begin
     port map (
         clock => clock,
         sel   => s_equal,
-        a     => s_data12,
+        a     => s_aux_read_data,
         b     => s_value_to_write,
         y     => s_adder_n_a
     );

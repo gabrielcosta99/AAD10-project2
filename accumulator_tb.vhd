@@ -54,47 +54,47 @@ begin
     s_write_inc   <= std_logic_vector(to_unsigned(   7 ,2**DATA_BITS_LOG2));
     -- s_write_shift <= std_logic_vector(to_unsigned(   0 ,DATA_BITS_LOG2));
     wait for 1000 ps;
-    -- T=1 --- a[15] = 48 (final)
+    -- T=1 --- a[15] = 3 (final)
     s_write_addr  <= std_logic_vector(to_unsigned(  15 ,ADDR_BITS));
     s_write_inc   <= std_logic_vector(to_unsigned(   3 ,2**DATA_BITS_LOG2));
     -- s_write_shift <= std_logic_vector(to_unsigned(   4 ,DATA_BITS_LOG2));
     wait for 1000 ps;
-    -- T=2 --- a[ 3] = 9
+    -- T=2 --- a[ 3] = 8
     s_write_addr  <= std_logic_vector(to_unsigned(   3 ,ADDR_BITS));
     s_write_inc   <= std_logic_vector(to_unsigned(   1 ,2**DATA_BITS_LOG2));
     -- s_write_shift <= std_logic_vector(to_unsigned(   1 ,DATA_BITS_LOG2));
     wait for 1000 ps;
-    -- T=3 --- a[ 3] = 16
+    -- T=3 --- a[ 3] = 15
     s_write_addr  <= std_logic_vector(to_unsigned(   3 ,ADDR_BITS));
     s_write_inc   <= std_logic_vector(to_unsigned(   7 ,2**DATA_BITS_LOG2));
     -- s_write_shift <= std_logic_vector(to_unsigned(   0 ,DATA_BITS_LOG2));
     wait for 1000 ps;
-    -- T=4 --- a[ 5] = 128 (final)
+    -- T=4 --- a[ 5] = 64 (final)
     s_write_addr  <= std_logic_vector(to_unsigned(   5 ,ADDR_BITS));
     s_write_inc   <= std_logic_vector(to_unsigned(  64 ,2**DATA_BITS_LOG2));
     -- s_write_shift <= std_logic_vector(to_unsigned(   1 ,DATA_BITS_LOG2));
     wait for 1000 ps;
-    -- T=5 --- a[ 4] = 64
+    -- T=5 --- a[ 4] = 1
     s_write_addr  <= std_logic_vector(to_unsigned(   4 ,ADDR_BITS));
     s_write_inc   <= std_logic_vector(to_unsigned(   1 ,2**DATA_BITS_LOG2));
     -- s_write_shift <= std_logic_vector(to_unsigned(   6 ,DATA_BITS_LOG2));
     wait for 1000 ps;
-    -- T=6 --- a[ 4] = 64 (final)
+    -- T=6 --- a[ 4] = 17 (final)
     s_write_addr  <= std_logic_vector(to_unsigned(   4 ,ADDR_BITS));
     s_write_inc   <= std_logic_vector(to_unsigned(  16 ,2**DATA_BITS_LOG2));
     -- s_write_shift <= std_logic_vector(to_unsigned(   6 ,DATA_BITS_LOG2));
     wait for 1000 ps;
-    -- T=7 --- a[ 3] = 32 (final)
+    -- T=7 --- a[ 3] = 16 (final)
     s_write_addr  <= std_logic_vector(to_unsigned(   3 ,ADDR_BITS));
     s_write_inc   <= std_logic_vector(to_unsigned(   1 ,2**DATA_BITS_LOG2));
     -- s_write_shift <= std_logic_vector(to_unsigned(   4 ,DATA_BITS_LOG2));
     wait for 1000 ps;
-    -- T=8 --- a[10] = 144 (final)
+    -- T=8 --- a[10] = 100 (final)
     s_write_addr  <= std_logic_vector(to_unsigned(  10 ,ADDR_BITS));
     s_write_inc   <= std_logic_vector(to_unsigned( 100 ,2**DATA_BITS_LOG2));
     -- s_write_shift <= std_logic_vector(to_unsigned(   2 ,DATA_BITS_LOG2));
     wait for 1000 ps;
-    -- T=9 --- a[ 2] = 34 (final)
+    -- T=9 --- a[ 2] = 17 (final)
     s_write_addr  <= std_logic_vector(to_unsigned(   2 ,ADDR_BITS));
     s_write_inc   <= std_logic_vector(to_unsigned(  17 ,2**DATA_BITS_LOG2));
     -- s_write_shift <= std_logic_vector(to_unsigned(   1 ,DATA_BITS_LOG2));

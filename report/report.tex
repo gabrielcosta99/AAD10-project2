@@ -47,30 +47,31 @@ As suggested with the provided starting point, the basic accumulator was impleme
 \texttt{accumulator\_single\_cycle.vhd} with the following features:
 \begin{itemize}
     \item Simple write and read ports
-    \item Direct accumulation without pipelining
     \item Basic addition functionality
     \item Synchronous reset to initialize the accumulator
     \item Parameterizable data width for flexibility
 \end{itemize}
 
-The accumulator operates by reading an input value, adding it to the current stored value, and then writing the result back to the storage register in a single clock cycle. This design ensures minimal latency but does not support high-frequency operations due to the lack of pipelining.
+The accumulator operates by reading an input value, adding it to the current stored value in the ram in the address \textbf{write\_addr}, and then writing the result back to the storage register in a single clock cycle. 
+%This design ensures minimal latency but does not support high-frequency operations due to the lack of pipelining.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1.0\linewidth]{accumulator_single_sycle.png}
+    \includegraphics[width=1.0\linewidth]{accumulator_single_cycle.png}
     \caption{Single-cycle accumulator block diagram}
     \label{fig:single_cycle}
 \end{figure}
 
 
 \subsection{Pipelined Accumulator}
-The pipelined version \texttt{accumulator\_pipeline.vhd} improves
- upon the basic design by:
+The pipelined version, \texttt{accumulator\_pipeline.vhd}, requires two clock cycles to complete a single operation.
 \begin{itemize}
-    \item Adding pipeline stages to improve throughput
-    \item Using registers to stabilize signals
-    \item Implementing hazard detection
+    \item \textbf{First clock cycle:} The module reads the value stored in the specified memory location.
+    \item \textbf{Second clock cycle:} It computes the sum of the input value and the previously read value, then writes the result back to the memory.
 \end{itemize}
+    
+
+If the next input value needs to be added to the same \textbf{write\_addr} used in the previous operation, the output from the previous clock cycle (\textbf{s\_value\_to\_write}) is used directly as the new value to be incremented. This avoids the need to wait an additional clock cycle to retrieve the updated value from memory.
 
 \begin{figure}[H]
     \centering
@@ -93,7 +94,7 @@ In the single cycle version, the shift and accumulation operations are performed
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1.0\linewidth]{accumulator_shift_single_sycle.png}
+    \includegraphics[width=1.0\linewidth]{accumulator_shift_single_cycle.png}
     \caption{Shift accumulator single cycle block diagram}
     \label{fig:shift}
 \end{figure}

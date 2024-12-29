@@ -23,7 +23,7 @@ end accumulator;
 
 architecture structural of accumulator is
   signal s_write_addr_stable : std_logic_vector(ADDR_BITS-1 downto 0);
-  signal s_write_inc_stable,s_value_to_write, s_aux_r_d:  std_logic_vector(2**DATA_BITS_LOG2-1 downto 0);
+  signal s_write_inc_stable,s_value_to_write, s_aux_read_data:  std_logic_vector(2**DATA_BITS_LOG2-1 downto 0);
 begin
     my_register_addr: entity work.my_register(behavioral)
                  generic map(N => ADDR_BITS)
@@ -66,12 +66,12 @@ begin
                                   read_addr     => read_addr,
                                   read_data     => read_data,
                                   aux_read_addr => s_write_addr_stable,
-                                  aux_read_data => s_aux_r_d);
+                                  aux_read_data => s_aux_read_data);
 
 
     adder_n:  entity work.adder_n(structural)
     generic map(N => 2**DATA_BITS_LOG2)
-        port map(a     => s_aux_r_d,
+        port map(a     => s_aux_read_data,
                 b     => s_write_inc_stable,
                 c_in  => '0',
                 s     => s_value_to_write,
@@ -80,7 +80,7 @@ begin
     -- process(s_value_to_write) is
     -- begin
     --   if(s_write_inc_stable = write_inc) then
-    --     s_value_to_write <= s_aux_r_d;
+    --     s_value_to_write <= s_aux_read_data;
     --   end if;
     -- end process;
     -- s_write_inc_stable <= (others => '0');
