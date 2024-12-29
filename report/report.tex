@@ -57,7 +57,7 @@ The accumulator operates by reading an input value, adding it to the current val
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1.0\linewidth]{accumulator_single_cycle.png}
+    \includegraphics[width=1.0\linewidth]{accumulator_single_sycle.png}
     \caption{Single-cycle accumulator block diagram}
     \label{fig:single_cycle}
 \end{figure}
@@ -107,6 +107,11 @@ The block diagram in Figure \ref{fig:shift} illustrates the architecture of the 
 % TALVEZ EXPLICA AQUI O QUE ACONTECE EM CADA CLOCK CYCLE COMO EU FIZ NO PIPELINE NORMAL
 For the pipelined version, the design is divided into multiple stages, allowing for higher clock frequencies and improved throughput. Each stage of the pipeline performs a portion of the shift and accumulation operations, enabling the design to handle higher data rates. This is particularly beneficial in applications where large volumes of data need to be processed efficiently. The block diagram in Figure \ref{fig:shift_pipeline} shows the architecture of the pipelined shift accumulator.
 
+And similarly to the  non shift version, the pipelined version, this time in \texttt{accumulator\_shift\_pipeline.vhd}, requires two clock cycles to complete the objective.
+\begin{itemize}
+    \item \textbf{First clock cycle:} The module reads the value stored in the specified memory location.
+    \item \textbf{Second clock cycle:} It computes the sum of the input value and the previously read value, then writes the result back to the memory, only this time the sum is shifted by the amount specified in the \textbf{write\_shift} input.
+\end{itemize}
 \begin{figure}[H]
     \centering
     \includegraphics[width=1.0\linewidth]{accumulator_shift_pipeline.png}
