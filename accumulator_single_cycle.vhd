@@ -31,31 +31,12 @@ begin
                               d     => write_addr,
                               q     => s_write_addr_stable);
 
-    -- my_register_addr2: entity work.my_register(behavioral)
-    --                    generic map(N => ADDR_BITS)
-    --                       port map(clock => clock,
-    --                                d     => s_write_addr_stable,
-    --                                q     => delayed_write_addr2);
-
     my_register_inc:  entity work.my_register(behavioral)
                       generic map(N => 2**DATA_BITS_LOG2)
                          port map(clock => clock,
                                   d     => write_inc,
                                   q     => s_write_inc_stable);
 
-
-
-  --     process(clock)
-  -- begin
-  --   if rising_edge(clock) then
-  --     if write_inc_changed = '1' then
-  --       -- adder_n executes and s_value_to_write gets updated
-  --       s_value_to_write <= s_value_to_write; -- Signal propagation depends on this
-  --     else
-  --       s_value_to_write <= s_value_to_write; -- Optional: Hold previous value
-  --     end if;
-  --   end if;
-  -- end process;
     triple_port_ram:  entity work.triple_port_ram(synchronous_new)
                       generic map(ADDR_BITS => ADDR_BITS, DATA_BITS_LOG2 => DATA_BITS_LOG2)
                          port map(clock         => clock,
@@ -77,17 +58,5 @@ begin
                 s     => s_value_to_write,
                 c_out  => open);
     
-    -- process(s_value_to_write) is
-    -- begin
-    --   if(s_write_inc_stable = write_inc) then
-    --     s_value_to_write <= s_aux_read_data;
-    --   end if;
-    -- end process;
-    -- s_write_inc_stable <= (others => '0');
-
-  -- process(s_value_to_write) is
-  -- begin
-  --   s_value_to_write <= (others => '0');
-  -- end process;
 end structural;
 
